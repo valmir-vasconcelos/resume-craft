@@ -2,6 +2,7 @@ import Logo from "@/assets/logo.svg";
 import NavItems from "@/components/pages/dashboard/nav-items";
 import UserDropdown from "@/components/pages/dashboard/user-dropdown";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { Toaster } from "sonner";
 
 type DashboardLayoutProps = {
     children: React.ReactNode;
@@ -22,6 +23,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             </aside>
             <main className="p-6 flex flex-col w-full h-full overflow-auto">
                 {children}
+                <Toaster richColors />
             </main>
         </div>
     );

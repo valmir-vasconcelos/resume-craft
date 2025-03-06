@@ -1,30 +1,30 @@
-import { ComponentProps, ReactNode } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { Input } from ".";
 import FieldWrapper from "../field-wrapper";
+import { IconInput } from ".";
 
-type InputFieldProps = ComponentProps<typeof Input> & {
+
+type IconFieldProps = {
     label: string;
     name: string;
     containerClassName?: string;
-    extraContent?: (value: string) => ReactNode;
-}
+    required?: boolean;
+};
 
-const InputField = ({ label, name, required, containerClassName, extraContent, ...props }: InputFieldProps) => {
+export const IconField = ({ label, name, required, containerClassName, ...props }: IconFieldProps) => {
     const { control } = useFormContext();
+
     return (
         <Controller
             control={control}
             name={name}
-            rules={{ required: required && "Campo obrigatório" }}
+            rules={{
+                required: required && "Campo obrigatório",
+            }}
             render={({ field, fieldState }) => (
                 <FieldWrapper label={label} className={containerClassName} error={fieldState?.error}>
-                    <Input {...props} {...field} />
-                    {extraContent && extraContent(field.value)}
+                    <IconInput {...props} {...field} />
                 </FieldWrapper>
             )}
         />
     );
-}
-
-export default InputField;
+};

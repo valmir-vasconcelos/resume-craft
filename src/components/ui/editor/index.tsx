@@ -5,7 +5,6 @@ import StarterKit from '@tiptap/starter-kit'
 import Underline from '@tiptap/extension-underline'
 import TextAlign from '@tiptap/extension-text-align'
 import { cn } from '@/lib/utils'
-import { Menu } from 'lucide-react'
 import MenuBar from './menu-bar'
 
 type EditorProps = {
